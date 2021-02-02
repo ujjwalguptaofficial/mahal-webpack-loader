@@ -1,12 +1,15 @@
 <html>
-<div>
-    <div id="counter">{{counter}}</div>
-    <button id="btnIncrement" on:click='increment'>Increment</button>
-    <button id="btnDecrement" on:click='decrement'>Decrement</button>
-</div>
+    <div>
+        <div id="counter">{{counter}}</div>
+        <button id="btnIncrement" on:click='increment'>
+            Increment
+        </button>
+        <button id="btnDecrement" on:click='decrement'>Decrement</button>
+    </div>
 </html>
 <script>
 export default class extends Component {
+
     @Reactive
     counter = 0;
 
