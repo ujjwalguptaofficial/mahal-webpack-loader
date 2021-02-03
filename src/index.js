@@ -5,7 +5,9 @@ var DomParser = require('dom-parser');
 var parser = new DomParser();
 const { stringifyRequest } = require('loader-utils');
 const qs = require('querystring');
-const { renderComponentPart } = require('./render_component_part');
+const { extractComponent } = require('./extract_component');
+const componentRendererPath = require.resolve('./runtime/render_component')
+
 exports.default = async function loader(source) {
     // console.log("source", source);
     console.log('rawQuery', this.resourceQuery);
@@ -27,13 +29,11 @@ exports.default = async function loader(source) {
     });
     if (queryParam.type) {
         console.log("type", queryParam.type)
-        renderComponentPart({
+        extractComponent.call(this, {
             appendExtension: false,
-            context: this,
             descriptor: componentDescription,
             lang: queryParam.lang,
             query: queryParam,
-            cb: callback
         })
         return;
     }
@@ -48,13 +48,35 @@ exports.default = async function loader(source) {
         // const request = templateRequest = stringifyRequest(src + query);
         const request = templateRequest = stringifyRequest(this, src + query);
         console.log("request", request);
-        imports['html'] = `import { render, staticRenderFns } from ${request}`
+        imports['html'] = `import  render  from ${request}`
     }
-    let result = "";
+    if (componentDescription.script) {
+        const src = componentDescription.script.src || resourcePath
+        // const idQuery = `&id=${id}`
+        // const scopedQuery = hasScoped ? `&scoped=true` : ``
+        // const attrsQuery = attrsToQuery(descriptor.template.attrs)
+        // const query = `?taj&type=template${idQuery}${scopedQuery}${attrsQuery}${inheritQuery}`
+        const query = `?taj&type=script`
+        // const request = templateRequest = stringifyRequest(src + query);
+        const request = templateRequest = stringifyRequest(this, src + query);
+        console.log("request", request);
+        imports['script'] = `import script from ${request}\n` +
+            `export * from ${request}`;
+
+    }
+    let rawCode = "";
     for (const item in imports) {
-        result += imports[item];
+        rawCode += imports[item] + "\n";
     }
-    console.log("result", result);
-    this.callback(null, result);
+    rawCode += 
+    `import {renderComponent} from ${stringifyRequest(this, `!${componentRendererPath}`)}
+    var component = renderComponent({
+        script:script,
+        render:render
+    })
+    `;
+    rawCode += `export default component`
+    console.log("rawcode", rawCode);
+    this.callback(null, rawCode);
     return;
 }

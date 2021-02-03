@@ -11,11 +11,19 @@ module.exports = {
                 loader: path.resolve('./src/index.js')
             }],
             exclude: /node_modules/
-        }, {
+        },
+        {
             test: /\.css?$/,
             use: 'css-loader',
             exclude: /node_modules/
-        }]
+        },
+        {
+            test: /\.ts?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/,
+            exclude: /node_modules/
+        }
+        ]
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.css', '.taj']
