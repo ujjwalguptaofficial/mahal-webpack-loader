@@ -56,7 +56,7 @@ exports.default = async function loader(source) {
         // const scopedQuery = hasScoped ? `&scoped=true` : ``
         // const attrsQuery = attrsToQuery(descriptor.template.attrs)
         // const query = `?taj&type=template${idQuery}${scopedQuery}${attrsQuery}${inheritQuery}`
-        const query = `?taj&type=script`
+        const query = `?taj&type=script&lang=ts`
         // const request = templateRequest = stringifyRequest(src + query);
         const request = templateRequest = stringifyRequest(this, src + query);
         console.log("request", request);
@@ -68,12 +68,13 @@ exports.default = async function loader(source) {
     for (const item in imports) {
         rawCode += imports[item] + "\n";
     }
-    rawCode += 
-    `import {renderComponent} from ${stringifyRequest(this, `!${componentRendererPath}`)}
+    rawCode +=
+        `import {renderComponent} from ${stringifyRequest(this, `!${componentRendererPath}`)}
     var component = renderComponent({
         script:script,
         render:render
     })
+    console.log('comp',component)
     `;
     rawCode += `export default component`
     console.log("rawcode", rawCode);

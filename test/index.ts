@@ -6,12 +6,12 @@ export default {
     },
     methods: {
         name() {
-            this.Index();
+            Index();
             console.log("this", this);
         }
     }
 }
 
-export function sayMyName(name) {
-    alert(name);
-}
+// export function sayMyName(name) {
+//     alert(name);
+// }

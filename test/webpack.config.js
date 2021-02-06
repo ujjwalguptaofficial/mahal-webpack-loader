@@ -1,15 +1,17 @@
 const path = require('path');
 console.log("path", path.resolve(__dirname, 'bin/'))
 module.exports = {
-    entry: './test/index.js',
+    entry: './test/index.ts',
     devtool: 'inline-source-map',
     mode: "development",
     module: {
         rules: [{
             test: /\.taj?$/,
-            use: [{
-                loader: path.resolve('./src/index.js')
-            }],
+            use: [
+                'ts-loader',
+                {
+                    loader: path.resolve('./src/index.js')
+                }],
             exclude: /node_modules/
         },
         {
@@ -19,9 +21,13 @@ module.exports = {
         },
         {
             test: /\.ts?$/,
-            use: 'ts-loader',
+            use: {
+                loader: 'ts-loader',
+                options: {
+                    appendTsSuffixTo: [/\.taj$/],
+                }
+            },
             exclude: /node_modules/,
-            exclude: /node_modules/
         }
         ]
     },
