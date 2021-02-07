@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack",
-    "build:grammar": "node build_helper/grammar.js",
     "dev": "webpack-dev-server --config webpack.config.js",
     "start": "npm run dev",
     "test": "webpack --config test/webpack.config.js",
-    "build:html-compiler": "npm run build:grammar && webpack --config compiler/webpack.config.js"
+    "install:html-compiler": "npm i ../taj-html-compiler/taj-html-compiler-1.0.0.tgz --no-save"
   },
   "dependencies": {
     "dom-parser": "^0.1.6",

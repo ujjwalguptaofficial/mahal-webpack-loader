@@ -1,4 +1,4 @@
-const { tajHtmlCompiler } = require("./template_compiler");
+const { tajHtmlCompiler } = require("taj-html-compiler");
 exports.extractComponent = function (
     { query, descriptor, appendExtension, lang }
 ) {
