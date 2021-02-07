@@ -1,5 +1,8 @@
 const path = require('path');
 console.log("path", path.resolve(__dirname, 'bin/'))
+
+const TajPlugin = require('../src/plugin');
+
 module.exports = {
     entry: './test/index.ts',
     devtool: 'inline-source-map',
@@ -8,17 +11,24 @@ module.exports = {
         rules: [{
             test: /\.taj?$/,
             use: [
-                'ts-loader',
+                // {
+                //     loader: 'ts-loader?lang=tssss',
+                //     options: {
+                //         // query: {
+                //         //     lang: 'ts'
+                //         // }
+                //     }
+                // },
                 {
                     loader: path.resolve('./src/index.js')
                 }],
             exclude: /node_modules/
         },
-        {
-            test: /\.css?$/,
-            use: 'css-loader',
-            exclude: /node_modules/
-        },
+        // {
+        //     test: /\.css?$/,
+        //     use: 'css-loader',
+        //     exclude: /node_modules/
+        // },
         {
             test: /\.ts?$/,
             use: {
@@ -39,6 +49,6 @@ module.exports = {
         path: path.resolve(__dirname, 'bin/')
     },
     plugins: [
-
+        new TajPlugin()
     ]
 };

@@ -10,7 +10,9 @@ const componentRendererPath = require.resolve('./runtime/render_component')
 
 exports.default = async function loader(source) {
     // console.log("source", source);
-    console.log('rawQuery', this.resourceQuery);
+    // console.log("rules", this);
+    // return;
+    // console.log('rawQuery', this.resourceQuery);
     const { resourcePath } = this;
     const queryParam = qs.parse(this.resourceQuery);
     // this.callback(null, 'function name(){ this.name = ujjwal }');
@@ -28,7 +30,7 @@ exports.default = async function loader(source) {
         })
     });
     if (queryParam.type) {
-        console.log("type", queryParam.type)
+        // console.log("type", queryParam.type)
         extractComponent.call(this, {
             appendExtension: false,
             descriptor: componentDescription,
@@ -47,7 +49,7 @@ exports.default = async function loader(source) {
         const query = `?taj&type=html`
         // const request = templateRequest = stringifyRequest(src + query);
         const request = templateRequest = stringifyRequest(this, src + query);
-        console.log("request", request);
+        // console.log("request", request);
         imports['html'] = `import  render  from ${request}`
     }
     if (componentDescription.script) {
@@ -59,7 +61,7 @@ exports.default = async function loader(source) {
         const query = `?taj&type=script&lang=ts`
         // const request = templateRequest = stringifyRequest(src + query);
         const request = templateRequest = stringifyRequest(this, src + query);
-        console.log("request", request);
+        // console.log("request", request);
         imports['script'] = `import script from ${request}\n` +
             `export * from ${request}`;
 
@@ -77,7 +79,7 @@ exports.default = async function loader(source) {
     console.log('comp',component)
     `;
     rawCode += `export default component`
-    console.log("rawcode", rawCode);
+    // console.log("rawcode", rawCode);
     this.callback(null, rawCode);
     return;
 }

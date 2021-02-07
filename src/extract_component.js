@@ -3,7 +3,7 @@ exports.extractComponent = function (
     { query, descriptor, appendExtension, lang }
 ) {
     // html
-    console.log("query.type", `type ${query.type}`, "appendExtension", appendExtension)
+    console.log("extract component", "query.type", `type ${query.type}`, "appendExtension", appendExtension)
     if (query.type == 'html') {
         if (appendExtension) {
             this.resourcePath += '.' + (lang || 'html')
@@ -28,9 +28,10 @@ exports.extractComponent = function (
         if (appendExtension) {
             this.resourcePath += '.' + (lang || 'ts')
         }
-        console.log("resourcepath", this.resourcePath);
+        // console.log("resourcepath", this.resourcePath);
         this.callback(
             null,
+            // 'import script from'
             descriptor.script
         )
         return

@@ -6,7 +6,7 @@ export default {
     },
     methods: {
         name() {
-            Index();
+            new Index();
             console.log("this", this);
         }
     }
