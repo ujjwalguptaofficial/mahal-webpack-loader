@@ -66,7 +66,6 @@ function cloneRule(rule) {
 
 class TajLoaderPlugin {
     apply(compiler) {
-        console.log("FROM  PLUGIN");
         const rawRules = compiler.options.module.rules;
         const tajRuleIndex = rawRules.findIndex(q => {
             return q.test.test("ujjwal.taj");

@@ -1,17 +1,6 @@
-import Index from "./index.taj";
+import Main from "./index.taj";
+import { App } from "taj";
 
-export default {
-    components: {
-        Index
-    },
-    methods: {
-        name() {
-            new Index();
-            console.log("this", this);
-        }
-    }
-}
+export const app = new App(Main, document.querySelector('#app'));
 
-// export function sayMyName(name) {
-//     alert(name);
-// }
+app.create();
