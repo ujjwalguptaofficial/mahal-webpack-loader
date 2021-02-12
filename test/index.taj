@@ -30,9 +30,14 @@ export default class extends Component {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
 body{
     background:red;
+    button{
+        border:1px solid blue;
+        width:200px;
+        margin-left:20px;
+    }
 }
 </style>
 <style>
