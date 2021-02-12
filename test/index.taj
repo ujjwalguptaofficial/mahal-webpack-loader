@@ -35,3 +35,8 @@ body{
     background:red;
 }
 </style>
+<style>
+body{
+    font-size:30px;
+}
+</style>

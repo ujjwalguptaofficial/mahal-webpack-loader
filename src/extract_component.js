@@ -39,7 +39,7 @@ exports.extractComponent = function (
         }
         this.callback(
             null,
-            descriptor.style
+            descriptor.style[query.index || 0]
         )
         return
     }

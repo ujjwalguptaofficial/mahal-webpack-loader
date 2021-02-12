@@ -17,8 +17,8 @@ exports.default = async function loader(source) {
     var script = getContentFromXmlNode(source, 'script');
     var style = getContentFromXmlNode(source, 'style');
     const componentPart = {
-        html: html,
-        script: script,
+        html: html[0],
+        script: script[0],
         style: style
     };
     if (queryParam.type) {
@@ -43,19 +43,24 @@ exports.default = async function loader(source) {
         // const request = templateRequest = stringifyRequest(src + query);
         const request = templateRequest = stringifyRequest(this, src + query);
         // console.log("request", request);
-        imports['html'] = `import  render  from ${request}`
+        imports['html'] = `import  render  from ${request}\n`
     }
     if (componentPart.style) {
+        imports['style'] = '';
         const src = componentPart.style.src || resourcePath
         // const idQuery = `&id=${id}`
         // const scopedQuery = hasScoped ? `&scoped=true` : ``
         // const attrsQuery = attrsToQuery(descriptor.template.attrs)
         // const query = `?taj&type=template${idQuery}${scopedQuery}${attrsQuery}${inheritQuery}`
-        const query = `?taj&type=style&lang=css`
-        // const request = templateRequest = stringifyRequest(src + query);
-        const request = stringifyRequest(this, src + query);
-        // console.log("request", request);
-        imports['style'] = `import  style  from ${request}`
+        componentPart.style.forEach((_, index) => {
+            const query = `?taj&type=style&lang=css&index=${index}`
+            // const request = templateRequest = stringifyRequest(src + query);
+            const request = stringifyRequest(this, src + query);
+            // console.log("request", request);
+            imports['style'] += `import  style${index}  from ${request}\n`;
+        });
+
+
     }
     if (componentPart.script) {
         const src = componentPart.script.src || resourcePath
