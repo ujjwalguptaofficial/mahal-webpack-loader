@@ -1,13 +1,9 @@
-var parseString = require('xml2js').parseString;
-var DOMParser = require('xmldom').DOMParser;
-const htmlparser2 = require("htmlparser2");
-var DomParser = require('dom-parser');
-var parser = new DomParser();
 const { stringifyRequest } = require('loader-utils');
 const qs = require('querystring');
 const { extractComponent } = require('./extract_component');
 const componentRendererPath = require.resolve('./runtime/render_component')
-const cheerio = require('cheerio');
+const { getContentFromXmlNode } = require("./utils/get_content_from_xml_node")
+
 exports.default = async function loader(source) {
     // console.log("source", source);
     // console.log("rules", this);
@@ -17,34 +13,28 @@ exports.default = async function loader(source) {
     const queryParam = qs.parse(this.resourceQuery);
     // this.callback(null, 'function name(){ this.name = ujjwal }');
     // return;
-    const callback = this.async();
-    const componentDescription = await new Promise((res) => {
-        var $ = cheerio.load(source, {
-            xml: true
-        });
-        var html = $('html').html();
-        var script = $('script').html();
-        var style = $('style').html();
-        console.log('html', html, 'end');
-        res({
-            html: html,
-            script: script,
-            style: style
-        })
-    });
+    var html = getContentFromXmlNode(source, 'html');
+    var script = getContentFromXmlNode(source, 'script');
+    var style = getContentFromXmlNode(source, 'style');
+    const componentPart = {
+        html: html,
+        script: script,
+        style: style
+    };
     if (queryParam.type) {
         // console.log("type", queryParam.type)
+        const callback = this.async();
         extractComponent.call(this, {
             appendExtension: false,
-            descriptor: componentDescription,
+            descriptor: componentPart,
             lang: queryParam.lang,
             query: queryParam,
         })
         return;
     }
     const imports = {}
-    if (componentDescription.html) {
-        const src = componentDescription.html.src || resourcePath
+    if (componentPart.html) {
+        const src = componentPart.html.src || resourcePath
         // const idQuery = `&id=${id}`
         // const scopedQuery = hasScoped ? `&scoped=true` : ``
         // const attrsQuery = attrsToQuery(descriptor.template.attrs)
@@ -55,8 +45,8 @@ exports.default = async function loader(source) {
         // console.log("request", request);
         imports['html'] = `import  render  from ${request}`
     }
-    if (componentDescription.script) {
-        const src = componentDescription.script.src || resourcePath
+    if (componentPart.script) {
+        const src = componentPart.script.src || resourcePath
         // const idQuery = `&id=${id}`
         // const scopedQuery = hasScoped ? `&scoped=true` : ``
         // const attrsQuery = attrsToQuery(descriptor.template.attrs)
@@ -83,6 +73,5 @@ exports.default = async function loader(source) {
     `;
     rawCode += `export default component`
     // console.log("rawcode", rawCode);
-    this.callback(null, rawCode);
-    return;
+    return rawCode;
 }
