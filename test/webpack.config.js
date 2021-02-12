@@ -14,24 +14,21 @@ module.exports = {
         rules: [{
             test: /\.taj?$/,
             use: [
-                // {
-                //     loader: 'ts-loader?lang=tssss',
-                //     options: {
-                //         // query: {
-                //         //     lang: 'ts'
-                //         // }
-                //     }
-                // },
                 {
                     loader: path.resolve('./src/index.js')
                 }],
             exclude: /node_modules/
         },
-        // {
-        //     test: /\.css?$/,
-        //     use: 'css-loader',
-        //     exclude: /node_modules/
-        // },
+        {
+            test: /\.css?$/,
+            use: [
+                'style-loader',
+                {
+                    loader: require.resolve('css-loader')
+                }
+            ],
+            exclude: /node_modules/
+        },
         {
             test: /\.ts?$/,
             use: {

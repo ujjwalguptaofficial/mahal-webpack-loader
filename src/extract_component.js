@@ -18,9 +18,6 @@ exports.extractComponent = function (
         this.callback(
             null,
             `export default ${renderFn.toString()}`
-            // 'export function yomyname(){ this.name="ujjwal" }'
-            //|| descriptor.html,
-            // descriptor.html.map
         )
         return
     }
@@ -33,6 +30,16 @@ exports.extractComponent = function (
             null,
             // 'import script from'
             descriptor.script
+        )
+        return
+    }
+    if (query.type == 'style') {
+        if (appendExtension) {
+            this.resourcePath += '.' + (lang || 'css')
+        }
+        this.callback(
+            null,
+            descriptor.style
         )
         return
     }

@@ -38,7 +38,7 @@ function cloneRule(rule) {
             if (!qry) {
                 return false;
             }
-            console.log("rule", rule, "resource", qry);
+            console.log("rule", rule.test, "file", qry);
             currentResource = qry
             return true
         },
@@ -50,13 +50,19 @@ function cloneRule(rule) {
                 return false
             }
             const fakeResourcePath = `${currentResource}.${parsed.lang}`
-            if (resource && !resource(fakeResourcePath)) {
+            if (resource) {
+                if (resource(fakeResourcePath) === false) {
+                    return false;
+                }
+            }
+            else if (rule.test && rule.test.test(fakeResourcePath) === false) {
                 return false
             }
             if (resourceQuery && !resourceQuery(query)) {
                 return false
             }
-            console.log("true from resourcepath");
+            console.log("true from resourcepath", fakeResourcePath);
+            console.log("resource", resource);
             return true
         }
     })

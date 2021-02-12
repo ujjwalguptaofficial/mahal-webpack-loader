@@ -30,3 +30,8 @@ export default class extends Component {
 }
 </script>
 
+<style>
+body{
+    background:red;
+}
+</style>

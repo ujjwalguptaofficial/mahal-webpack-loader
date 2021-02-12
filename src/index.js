@@ -45,6 +45,18 @@ exports.default = async function loader(source) {
         // console.log("request", request);
         imports['html'] = `import  render  from ${request}`
     }
+    if (componentPart.style) {
+        const src = componentPart.style.src || resourcePath
+        // const idQuery = `&id=${id}`
+        // const scopedQuery = hasScoped ? `&scoped=true` : ``
+        // const attrsQuery = attrsToQuery(descriptor.template.attrs)
+        // const query = `?taj&type=template${idQuery}${scopedQuery}${attrsQuery}${inheritQuery}`
+        const query = `?taj&type=style&lang=css`
+        // const request = templateRequest = stringifyRequest(src + query);
+        const request = stringifyRequest(this, src + query);
+        // console.log("request", request);
+        imports['style'] = `import  style  from ${request}`
+    }
     if (componentPart.script) {
         const src = componentPart.script.src || resourcePath
         // const idQuery = `&id=${id}`
