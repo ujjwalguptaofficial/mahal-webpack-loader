@@ -10,7 +10,7 @@ exports.extractComponent = function (
         }
         let renderFn;
         try {
-            renderFn = createRenderer(descriptor.html);
+            renderFn = createRenderer(descriptor.html.content);
         } catch (error) {
             this.callback(new Error(error));
             return;
@@ -29,7 +29,7 @@ exports.extractComponent = function (
         this.callback(
             null,
             // 'import script from'
-            descriptor.script
+            descriptor.script.content
         )
         return
     }
@@ -39,7 +39,7 @@ exports.extractComponent = function (
         }
         this.callback(
             null,
-            descriptor.style[query.index || 0]
+            descriptor.style[query.index || 0].content
         )
         return
     }

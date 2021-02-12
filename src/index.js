@@ -52,8 +52,8 @@ exports.default = async function loader(source) {
         // const scopedQuery = hasScoped ? `&scoped=true` : ``
         // const attrsQuery = attrsToQuery(descriptor.template.attrs)
         // const query = `?taj&type=template${idQuery}${scopedQuery}${attrsQuery}${inheritQuery}`
-        componentPart.style.forEach((_, index) => {
-            const query = `?taj&type=style&lang=css&index=${index}`
+        componentPart.style.forEach((styleData, index) => {
+            const query = `?taj&type=style&lang=${styleData.attr.lang || 'css'}&index=${index}`
             // const request = templateRequest = stringifyRequest(src + query);
             const request = stringifyRequest(this, src + query);
             // console.log("request", request);
@@ -68,7 +68,7 @@ exports.default = async function loader(source) {
         // const scopedQuery = hasScoped ? `&scoped=true` : ``
         // const attrsQuery = attrsToQuery(descriptor.template.attrs)
         // const query = `?taj&type=template${idQuery}${scopedQuery}${attrsQuery}${inheritQuery}`
-        const query = `?taj&type=script&lang=ts`
+        const query = `?taj&type=script&lang=${componentPart.script.attr.lang || 'ts'}`
         // const request = templateRequest = stringifyRequest(src + query);
         const request = templateRequest = stringifyRequest(this, src + query);
         // console.log("request", request);
