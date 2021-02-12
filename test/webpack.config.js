@@ -3,6 +3,9 @@ console.log("path", path.resolve(__dirname, 'bin/'))
 
 const TajPlugin = require('../src/plugin');
 
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+
+
 module.exports = {
     entry: './test/index.ts',
     devtool: 'inline-source-map',
@@ -49,6 +52,18 @@ module.exports = {
         path: path.resolve(__dirname, 'bin/')
     },
     plugins: [
-        new TajPlugin()
+        new TajPlugin(),
+        new HtmlWebPackPlugin({
+            cache: true,
+            hash: true,
+            template: 'test/index.html',
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true
+            }
+        })
     ]
 };

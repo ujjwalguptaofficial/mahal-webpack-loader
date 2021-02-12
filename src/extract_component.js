@@ -1,4 +1,4 @@
-const { tajHtmlCompiler } = require("taj-html-compiler");
+const { createRenderer } = require("taj-html-compiler");
 exports.extractComponent = function (
     { query, descriptor, appendExtension, lang }
 ) {
@@ -10,9 +10,9 @@ exports.extractComponent = function (
         }
         let renderFn;
         try {
-            renderFn = tajHtmlCompiler.createRenderer(descriptor.html);
+            renderFn = createRenderer(descriptor.html);
         } catch (error) {
-            this.callback(error);
+            this.callback(new Error(error));
             return;
         }
         this.callback(

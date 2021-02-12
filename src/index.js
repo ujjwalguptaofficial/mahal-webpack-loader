@@ -7,7 +7,7 @@ const { stringifyRequest } = require('loader-utils');
 const qs = require('querystring');
 const { extractComponent } = require('./extract_component');
 const componentRendererPath = require.resolve('./runtime/render_component')
-
+const cheerio = require('cheerio');
 exports.default = async function loader(source) {
     // console.log("source", source);
     // console.log("rules", this);
@@ -19,14 +19,17 @@ exports.default = async function loader(source) {
     // return;
     const callback = this.async();
     const componentDescription = await new Promise((res) => {
-        var dom = parser.parseFromString(source);
-        var html = dom.getElementsByTagName('html');
-        var script = dom.getElementsByTagName('script');
-        var style = dom.getElementsByTagName('style');
+        var $ = cheerio.load(source, {
+            xml: true
+        });
+        var html = $('html').html();
+        var script = $('script').html();
+        var style = $('style').html();
+        console.log('html', html, 'end');
         res({
-            html: html.length > 0 ? html[0].innerHTML : null,
-            script: script.length > 0 ? script[0].innerHTML : null,
-            style: style.length > 0 ? style[0].innerHTML : null
+            html: html,
+            script: script,
+            style: style
         })
     });
     if (queryParam.type) {

@@ -1,12 +1,23 @@
 <html>
-   <div>Ujjwal</div>
+    <div>
+        <div>{{counter}}</div>
+       <button on:click="increment">Increment</button>
+       <button on:click="decrement">Decrement</button>
+   </div>
 </html>
 <script>
 import {Component, Reactive} from "taj";
 export default class extends Component {
 
     @Reactive
-    counter = 0;
+    counter = 10;
+
+    constructor(){
+        super();
+        this.on("rendered",()=>{
+            console.log("rendered")
+        })
+    }
 
     increment() {
         console.log("triggered increment");
@@ -18,3 +29,4 @@ export default class extends Component {
     }
 }
 </script>
+
