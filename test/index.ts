@@ -1,5 +1,5 @@
-import Main from "./index.taj";
-import { App } from "taj";
+import Main from "./index.mahal";
+import { App } from "mahal";
 
 export const app = new App(Main, document.querySelector('#app'));
 

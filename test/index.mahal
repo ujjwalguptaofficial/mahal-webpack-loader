@@ -6,7 +6,7 @@
    </div>
 </html>
 <script>
-import {Component, Reactive} from "taj";
+import {Component, Reactive} from "mahal";
 export default class extends Component {
 
     @Reactive

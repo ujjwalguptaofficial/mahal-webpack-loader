@@ -1,7 +1,8 @@
 const path = require('path');
 console.log("path", path.resolve(__dirname, 'bin/'))
 
-const TajPlugin = require('../src/plugin');
+// const TajPlugin = require('../src/plugin');
+const TajPlugin = require('mahal-webpack-loader/lib/plugin');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
@@ -12,11 +13,15 @@ module.exports = {
     mode: "development",
     module: {
         rules: [{
-            test: /\.taj?$/,
-            use: [
-                {
-                    loader: path.resolve('./src/index.js')
-                }],
+            test: /\.mahal?$/,
+            // loader: 'mahal-webpack-loader',
+            use: {
+                loader: require.resolve('mahal-webpack-loader')
+            },
+            // use: [
+            //     {
+            //         loader: path.resolve('./src/index.js')
+            //     }],
             exclude: /node_modules/
         },
         {
@@ -45,7 +50,7 @@ module.exports = {
             use: {
                 loader: 'ts-loader',
                 options: {
-                    appendTsSuffixTo: [/\.taj$/],
+                    appendTsSuffixTo: [/\.mahal$/],
                 }
             },
             exclude: /node_modules/,
@@ -53,7 +58,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.css', '.taj']
+        extensions: ['.tsx', '.ts', '.js', '.css', '.mahal']
     },
     output: {
         filename: 'bundles.js',
