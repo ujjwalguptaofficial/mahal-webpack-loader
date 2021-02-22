@@ -1,0 +1,6 @@
+bin
+build
+extra
+node_modules
+test
+*.tgz
