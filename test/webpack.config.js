@@ -65,7 +65,9 @@ module.exports = {
         path: path.resolve(__dirname, 'bin/')
     },
     plugins: [
-        new TajPlugin(),
+        new TajPlugin({
+            lang: 'ts'
+        }),
         new HtmlWebPackPlugin({
             cache: true,
             hash: true,

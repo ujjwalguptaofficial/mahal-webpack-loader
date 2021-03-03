@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install:lib": "npm i ../../mahal/mahal-1.0.0.tgz --no-save",
+    "install:lib": "npm i ../../mahal/mahal-0.6.0.tgz --no-save",
     "install:loader": "npm i ../mahal-webpack-loader-0.1.0.tgz"
   },
   "author": "",
