@@ -1,17 +1,17 @@
 {
   "name": "mahal-webpack-loader",
-  "version": "0.2.0",
+  "version": "0.6.0",
   "main": "lib/index.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --config test/webpack.config.js",
     "start": "npm run dev",
     "test": "webpack --config test/webpack.config.js",
-    "install:html-compiler": "npm i ../mahal-html-compiler/mahal-html-compiler-0.4.0.tgz --no-save"
+    "install:html-compiler": "npm i ../mahal-html-compiler/mahal-html-compiler-0.5.0.tgz --no-save"
   },
   "dependencies": {
     "loader-utils": "^2.0.0",
-    "mahal-html-compiler": "^0.4.0"
+    "mahal-html-compiler": "^0.8.0"
   },
   "devDependencies": {
     "css-loader": "^5.0.2",
