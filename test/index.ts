@@ -1,6 +1,6 @@
 import Main from "./index.mahal";
-import { App } from "mahal";
+import { Mahal } from "mahal";
 
-export const app = new App(Main, document.querySelector('#app'));
+export const app = new Mahal(Main, document.querySelector('#app'));
 
 app.create();

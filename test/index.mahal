@@ -1,9 +1,9 @@
 <html>
-    <div>
-        <div>{{counter}}</div>
-       <button on:click="increment">Increment</button>
-       <button on:click="decrement">Decrement</button>
-   </div>
+<div>
+	<div>{{counter}}</div>
+	<button class="btmmmm" on:click="increment">Increment</button>
+	<button on:click="decrement">Decrement</button>
+</div>
 </html>
 <script>
 import {Component, Reactive} from "mahal";
@@ -14,34 +14,38 @@ export default class extends Component {
 
     constructor(){
         super();
-        this.on("rendered",()=>{
-            console.log("rendered")
-        })
-    }
+		this.on("rendered", () => {
+			console.log("rendered")
+		})
+	}
 
-    increment() {
-        console.log("triggered increment");
-        ++this.counter;
-    }
+	increment() {
+		console.log("triggered increment");
+		++this.counter;
+	}
 
-    decrement() {
-        --this.counter;
-    }
+	decrement() {
+		--this.counter;
+	}
 }
 </script>
 
 <style lang="scss">
-body{
-    background:red;
-    button{
-        border:1px solid blue;
-        width:200px;
-        margin-left:20px;
-    }
+body {
+    background: blue;
 }
 </style>
-<style>
-body{
-    font-size:30px;
+
+<style lang="scss" scoped>
+
+
+button {
+    border: 1px solid blue;
+    width: 200px;
+    margin-left: 30px;
+}
+
+.btmmmm {
+    color: maroon;
 }
 </style>

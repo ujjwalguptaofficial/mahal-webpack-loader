@@ -8,7 +8,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    entry: './test/index.ts',
+    entry: './index.ts',
     devtool: 'inline-source-map',
     mode: "development",
     module: {
@@ -41,7 +41,8 @@ module.exports = {
                 'style-loader',
                 {
                     loader: require.resolve('css-loader')
-                }
+                },
+                { loader: 'scoped-css-loader' },
             ],
             exclude: /node_modules/
         },
@@ -71,7 +72,7 @@ module.exports = {
         new HtmlWebPackPlugin({
             cache: true,
             hash: true,
-            template: 'test/index.html',
+            template: 'index.html',
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,

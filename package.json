@@ -5,13 +5,15 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --config test/webpack.config.js",
+    "build:dev": "npm pack && cd test && npm run install:dev",
     "start": "npm run dev",
     "test": "webpack --config test/webpack.config.js",
     "install:html-compiler": "npm i ../mahal-html-compiler/mahal-html-compiler-0.5.0.tgz --no-save"
   },
   "dependencies": {
+    "hash-sum": "^2.0.0",
     "loader-utils": "^2.0.0",
-    "mahal-html-compiler": "^0.8.0"
+    "mahal-html-compiler": "^0.12.0"
   },
   "devDependencies": {
     "css-loader": "^5.0.2",
