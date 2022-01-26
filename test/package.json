@@ -22,6 +22,8 @@
   "dependencies": {
     "mahal": "^0.15.0",
     "mahal-webpack-loader": "file:../mahal-webpack-loader-0.6.0.tgz",
-    "scoped-css-loader": "^1.0.0"
+    "scoped-css-loader": "^1.0.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5"
   }
 }
