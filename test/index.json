@@ -1,0 +1,65 @@
+[
+    {
+        "test": "/home/geralt/Desktop/test_setup/node_modules/mochapack/lib/entry.js",
+        "use": [
+            {
+                "loader": "/home/geralt/Desktop/test_setup/node_modules/mochapack/lib/webpack/loader/includeFilesLoader.js",
+                "options": {
+                    "include": []
+                }
+            },
+            {
+                "loader": "/home/geralt/Desktop/test_setup/node_modules/mochapack/lib/webpack/loader/entryLoader.js",
+                "options": {
+                    "entryConfig": {
+                        "files": [
+                            "/home/geralt/Desktop/test_setup/test/mahal_intro.test.ts"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "test": {},
+        "use": {
+            "loader": "/home/geralt/Desktop/test_setup/node_modules/mahal-webpack-loader/lib/index.js"
+        },
+        "exclude": {}
+    },
+    {
+        "test": {},
+        "use": [
+            "style-loader",
+            "css-loader"
+        ]
+    },
+    {
+        "test": {},
+        "use": [
+            "style-loader",
+            "css-loader",
+            "sass-loader"
+        ]
+    },
+    {
+        "test": {},
+        "use": {
+            "loader": "ts-loader",
+            "options": {
+                "appendTsSuffixTo": [
+                    {}
+                ]
+            }
+        },
+        "exclude": {}
+    },
+    {
+        "test": {},
+        "type": "asset/resource"
+    },
+    {
+        "test": {},
+        "type": "asset/inline"
+    }
+]

@@ -1,8 +1,8 @@
 <html>
 <div>
-	<div>{{counter}}</div>
-	<button class="btmmmm" on:click="increment">Increment</button>
-	<button on:click="decrement">Decrement</button>
+	<div class="counter">{{counter}}</div>
+	<button class="increment-button" on:click="increment">Increment</button>
+	<button class="decrement-button" on:click="decrement">Decrement</button>
 </div>
 </html>
 <script>

@@ -1,29 +1,49 @@
 {
-  "name": "test",
+  "name": "mahal-app",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
-  "bin": {
-    "test": "bundles.js"
-  },
+  "main": "index.js",
   "scripts": {
-    "install:dev": "node install_lib.js && npm run dev",
-    "dev": "webpack-dev-server --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install:lib": "npm i ../../mahal/mahal-0.6.0.tgz --no-save",
-    "install:loader": "npm i ../mahal-webpack-loader-0.6.0.tgz"
+    "install:lib": "node install_lib.js",
+    "install:test": "npm run install:lib && npm run test",
+    "dev": "webpack serve --open --config webpack/dev.config.js",
+    "deploy": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js",
+    "build": "cross-env NODE_ENV=development webpack --config webpack/dev.config.js",
+    "test": "cross-env NODE_ENV=test mochapack --require ./test/setup.js --webpack-config webpack/dev.config.js \"test/**/*.test.ts\"  --full-trace"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "css-loader": "^5.0.2",
-    "html-webpack-plugin": "^5.0.0"
-  },
+  "license": "",
+  "private": "true",
   "dependencies": {
-    "mahal": "^0.15.0",
-    "mahal-webpack-loader": "file:../mahal-webpack-loader-0.8.0.tgz",
-    "scoped-css-loader": "^1.0.0",
+    "mahal": "^1.0.1",
+    "mahal-test-utils": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.1.0",
+    "chai": "^4.3.6",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.2.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "css-minimizer-webpack-plugin": "^3.4.1",
+    "html-webpack-plugin": "^5.2.0",
+    "jsdom": "^19.0.0",
+    "mahal-webpack-loader": "file:../mahal-webpack-loader-1.0.0.tgz",
+    "mini-css-extract-plugin": "^2.5.3",
+    "mocha": "^9.2.1",
+    "mochapack": "^2.1.4",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
     "ts-loader": "^9.2.6",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.3",
+    "webpack-merge": "^5.8.0"
+  },
+  "project": {
+    "framework": "mahal"
   }
 }

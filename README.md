@@ -1,1 +1,1 @@
-# taj-webpack-loader
+# mahal-webpack-loader
