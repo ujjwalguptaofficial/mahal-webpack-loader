@@ -1,6 +1,6 @@
 {
   "name": "mahal-webpack-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "webpack loader for mahal framework",
   "main": "lib/index.js",
   "author": "Ujjwal Gupta",

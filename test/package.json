@@ -30,7 +30,7 @@
     "css-minimizer-webpack-plugin": "^3.4.1",
     "html-webpack-plugin": "^5.2.0",
     "jsdom": "^19.0.0",
-    "mahal-webpack-loader": "file:../mahal-webpack-loader-1.0.0.tgz",
+    "mahal-webpack-loader": "file:../mahal-webpack-loader-1.0.1.tgz",
     "mini-css-extract-plugin": "^2.5.3",
     "mocha": "^9.2.1",
     "mochapack": "^2.1.4",
