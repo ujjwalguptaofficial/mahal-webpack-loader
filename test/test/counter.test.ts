@@ -32,4 +32,22 @@ describe("Counter", () => {
         await component.waitFor('update');
         checkForCounter('9')
     });
+
+    it('check for scoped', (done) => {
+        const el = component.find('.decrement-button');
+        let isFound = false;
+        for (var i = 0, atts = el.attributes, n = atts.length; i < n; i++) {
+            const attr = atts[i];
+            console.log('att', attr.nodeName);
+            if (attr.nodeName.includes('mahal-')) {
+                isFound = true;
+            }
+        }
+        if (!isFound) {
+            done("scoped attr not found");
+        }
+        else {
+            done();
+        }
+    });
 });

@@ -57,7 +57,7 @@ export default class extends Component {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .mahal-app {
     display: flex;
     align-items: center;

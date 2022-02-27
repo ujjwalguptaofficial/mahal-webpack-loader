@@ -6,10 +6,11 @@
   "scripts": {
     "install:lib": "node install_lib.js",
     "install:test": "npm run install:lib && npm run test",
+    "install:dev": "npm run install:lib && npm run dev",
     "dev": "webpack serve --open --config webpack/dev.config.js",
     "deploy": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js",
     "build": "cross-env NODE_ENV=development webpack --config webpack/dev.config.js",
-    "test": "cross-env NODE_ENV=test mochapack --require ./test/setup.js --webpack-config webpack/dev.config.js \"test/**/*.test.ts\"  --full-trace"
+    "test": "cross-env BUILD_ENV=test mochapack --require ./test/setup.js --webpack-config webpack/dev.config.js \"test/**/*.test.ts\"  --full-trace"
   },
   "author": "",
   "license": "",

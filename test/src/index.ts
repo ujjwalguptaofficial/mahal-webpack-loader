@@ -9,5 +9,6 @@ export const app = new Mahal(App, '#app');
 registerGlobalFormatter(app);
 // set config to be available globally
 app.global.config = config;
-// if(process.env.NODE_ENV)
-// app.create();
+if (process.env.BUILD_ENV !== 'test') {
+    app.create();
+}

@@ -77,7 +77,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': "'development'",
+            'process.env.BUILD_ENV': JSON.stringify(process.env.BUILD_ENV),
         }),
         new MahalPlugin({
             lang: 'ts'
