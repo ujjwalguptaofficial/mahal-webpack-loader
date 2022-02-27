@@ -10,7 +10,8 @@
     "build:dev": "npm pack && cd test && npm run install:dev",
     "start": "npm run dev",
     "test": "npm pack && cd test && npm run install:test",
-    "install:html-compiler": "npm i ../mahal-html-compiler/mahal-html-compiler-0.5.0.tgz --no-save"
+    "install:html-compiler": "npm i ../mahal-html-compiler/mahal-html-compiler-0.5.0.tgz --no-save",
+    "build:ci":"npm run test"
   },
   "dependencies": {
     "@vue/component-compiler-utils": "^3.3.0",
