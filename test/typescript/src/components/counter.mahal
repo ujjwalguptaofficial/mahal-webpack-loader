@@ -1,0 +1,51 @@
+<html>
+<div>
+	<div class="counter">{{counter}}</div>
+	<button class="increment-button" on:click="increment">Increment</button>
+	<button class="decrement-button" on:click="decrement">Decrement</button>
+</div>
+</html>
+<script>
+import {Component, Reactive} from "mahal";
+export default class extends Component {
+
+    @Reactive
+    counter = 10;
+
+    constructor(){
+        super();
+		this.on("rendered", () => {
+			console.log("rendered")
+		})
+	}
+
+	increment() {
+		console.log("triggered increment");
+		++this.counter;
+	}
+
+	decrement() {
+		--this.counter;
+	}
+}
+</script>
+
+<style lang="scss">
+body {
+    background: blue;
+}
+</style>
+
+<style lang="scss" scoped>
+
+
+button {
+    border: 1px solid blue;
+    width: 200px;
+    margin-left: 30px;
+}
+
+.btmmmm {
+    color: maroon;
+}
+</style>
