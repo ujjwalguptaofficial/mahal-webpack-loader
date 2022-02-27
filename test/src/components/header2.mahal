@@ -1,0 +1,16 @@
+<html>
+	<h1>Header</h1>
+</html>
+<script>
+import {Component, Reactive} from "mahal";
+export default class extends Component {
+
+    
+}
+</script>
+
+<style lang="scss" scoped>
+h1{
+    color:blue;
+}
+</style>
