@@ -13,10 +13,7 @@
   "author": "",
   "license": "",
   "private": "true",
-  "dependencies": {
-    "mahal": "^1.0.1",
-    "mahal-test-utils": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.1.0",
