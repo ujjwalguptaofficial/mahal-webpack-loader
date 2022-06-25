@@ -1,6 +1,6 @@
 {
   "name": "mahal-webpack-loader",
-  "version": "1.1.5",
+  "version": "1.2.2",
   "description": "webpack loader for mahal framework",
   "main": "lib/index.js",
   "author": "Ujjwal Gupta",
@@ -19,7 +19,7 @@
     "@vue/component-compiler-utils": "^3.3.0",
     "hash-sum": "^2.0.0",
     "loader-utils": "^2.0.0",
-    "mahal-html-compiler": "^1.1.5"
+    "mahal-html-compiler": "^1.2.2"
   },
   "devDependencies": {
     "css-loader": "^6.5.1",
