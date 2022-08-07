@@ -14,6 +14,6 @@
   "dependencies": {
     "mahal": "^1.4.0",
     "mahal-test-utils": "^1.4.0",
-    "mahal-webpack-loader": "file:../mahal-webpack-loader-1.4.0.tgz"
+    "mahal-webpack-loader": "file:../mahal-webpack-loader-1.4.1.tgz"
   }
 }
