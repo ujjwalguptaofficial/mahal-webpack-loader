@@ -13,7 +13,8 @@
     "pack:test": "npm pack && npm run test",
     "install:html-compiler": "npm i ../mahal-html-compiler/mahal-html-compiler-0.5.0.tgz --no-save",
     "build:ci": "npm run pack:test",
-    "prepublishOnly": "npm run build:ci"
+    "prepublishOnly": "npm run install:latest && npm run build:ci",
+    "install:latest": "cd test && node install_latest.js"
   },
   "dependencies": {
     "@mahaljs/html-compiler": "^1.4.2",

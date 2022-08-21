@@ -7,13 +7,14 @@
     "test": "npm run test:typescript",
     "test:typescript": "cd typescript && npm run test",
     "install:lib": "node install_lib.js",
-    "install:test": "npm run install:lib && npm run test"
+    "install:test": "npm run install:lib && npm run test",
+    "install:latest": "node build_helper/install_latest.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@mahaljs/webpack-loader": "file:../mahaljs-webpack-loader-1.4.2.tgz",
-    "mahal": "^1.4.0",
-    "mahal-test-utils": "^1.4.0"
+    "mahal": "^1.4.1",
+    "mahal-test-utils": "^1.4.1"
   }
 }
