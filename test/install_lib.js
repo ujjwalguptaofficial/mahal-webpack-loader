@@ -13,7 +13,7 @@ console.log("folderLocation", compilerFolderLocation);
 if (packageInfo) {
     const version = packageInfo.version;
     console.log('version', version);
-    execSync(`npm i ${compilerFolderLocation}/mahal-webpack-loader-${packageInfo.version}.tgz`);
+    execSync(`npm i ${compilerFolderLocation}/mahaljs-webpack-loader-${packageInfo.version}.tgz`);
 }
 else {
     throw "no package found";

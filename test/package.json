@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mahaljs/webpack-loader": "file:../mahaljs-webpack-loader-1.4.2.tgz",
     "mahal": "^1.4.0",
-    "mahal-test-utils": "^1.4.0",
-    "mahal-webpack-loader": "file:../mahal-webpack-loader-1.4.1.tgz"
+    "mahal-test-utils": "^1.4.0"
   }
 }
