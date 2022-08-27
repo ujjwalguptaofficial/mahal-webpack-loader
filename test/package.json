@@ -13,8 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mahaljs/webpack-loader": "file:../mahaljs-webpack-loader-1.4.2.tgz",
-    "mahal": "^1.4.1",
-    "mahal-test-utils": "^1.4.1"
+    "@mahaljs/test-utils": "^1.4.2",
+    "@mahaljs/webpack-loader": "file:../mahaljs-webpack-loader-1.4.3.tgz",
+    "mahal": "^1.4.2"
   }
 }

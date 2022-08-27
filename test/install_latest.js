@@ -3,4 +3,4 @@ const { execSync } = require('child_process');
 const path = require('path');
 
 execSync(`npm i mahal@latest`);
-execSync(`npm i mahal-test-utils@latest`);
+execSync(`npm i @mahaljs/test-utils@latest`);

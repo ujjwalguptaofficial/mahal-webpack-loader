@@ -1,4 +1,4 @@
-import { initiate, mount } from "mahal-test-utils";
+import { initiate, mount } from "@mahaljs/test-utils";
 import Header from "@/components/header.mahal";
 import { expect } from "chai";
 import { app } from "@/index";
