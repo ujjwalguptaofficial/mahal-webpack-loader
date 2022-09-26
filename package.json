@@ -1,9 +1,16 @@
 {
   "name": "@mahaljs/webpack-loader",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "webpack loader for mahal framework",
   "main": "lib/index.js",
   "author": "Ujjwal Gupta",
+  "keywords": [
+    "mahal",
+    "webpack",
+    "loader",
+    "ui",
+    "framework"
+  ],
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --config test/webpack.config.js",
@@ -17,8 +24,8 @@
     "install:latest": "cd test && node install_latest.js"
   },
   "dependencies": {
-    "@mahaljs/html-compiler": "^1.4.3",
-    "@mahaljs/test-utils": "^1.4.2",
+    "@mahaljs/html-compiler": "^1.5.0",
+    "@mahaljs/test-utils": "^1.4.3",
     "@vue/component-compiler-utils": "^3.3.0",
     "hash-sum": "^2.0.0",
     "loader-utils": "^2.0.0"
