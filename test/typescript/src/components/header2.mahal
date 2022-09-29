@@ -2,7 +2,7 @@
 	<h1>Header</h1>
 </html>
 <script>
-import {Component, Reactive} from "mahal";
+import {Component, reactive} from "mahal";
 export default class extends Component {
 
     

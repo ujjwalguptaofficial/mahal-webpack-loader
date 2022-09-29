@@ -5,10 +5,10 @@
 </div>
 </html>
 <script>
-import {Component, Reactive, Children} from "mahal";
+import {Component, reactive, children} from "mahal";
 import Header2 from "@/components/header2.mahal"
 
-@Children({
+@children({
     Header2
 })
 export default class extends Component {
