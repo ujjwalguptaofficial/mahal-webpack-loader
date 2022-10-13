@@ -3,7 +3,7 @@ import Header from "@/components/header.mahal";
 import { expect } from "chai";
 import { app } from "@/index";
 
-describe("Mahal Intro", () => {
+describe("Header test", () => {
     let component: Header;
     before(async () => {
         component = await mount.call(app, Header);
