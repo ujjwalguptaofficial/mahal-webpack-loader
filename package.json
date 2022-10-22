@@ -1,6 +1,6 @@
 {
   "name": "@mahaljs/webpack-loader",
-  "version": "1.7.0",
+  "version": "1.8.1",
   "description": "webpack loader for mahal framework",
   "main": "lib/index.js",
   "author": "Ujjwal Gupta",
@@ -20,19 +20,19 @@
     "pack:test": "npm pack && npm run test",
     "install:html-compiler": "npm i ../mahal-html-compiler/mahal-html-compiler-0.5.0.tgz --no-save",
     "build:ci": "npm run pack:test",
-    "prepublishOnly": "npm run build:ci",
+    "prepublishOnly": "npm run install:latest && npm run build:ci",
     "install:latest": "node build_helper/install_latest.js"
   },
   "dependencies": {
-    "@mahaljs/html-compiler": "^1.7.0",
+    "@mahaljs/html-compiler": "^1.8.1",
     "@vue/component-compiler-utils": "^3.3.0",
     "hash-sum": "^2.0.0",
     "loader-utils": "^2.0.0"
   },
   "devDependencies": {
-    "@mahaljs/test-utils": "^1.6.1",
+    "@mahaljs/test-utils": "^1.8.0",
     "css-loader": "^6.5.1",
-    "mahal": "^1.6.3",
+    "mahal": "^1.8.0",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
