@@ -1,6 +1,6 @@
 {
   "name": "@mahaljs/webpack-loader",
-  "version": "1.8.6",
+  "version": "1.9.0",
   "description": "webpack loader for mahal framework",
   "main": "lib/index.js",
   "author": "Ujjwal Gupta",
@@ -24,7 +24,7 @@
     "install:latest": "node build_helper/install_latest.js"
   },
   "dependencies": {
-    "@mahaljs/html-compiler": "^1.8.6",
+    "@mahaljs/html-compiler": "^1.9.0",
     "@vue/component-compiler-utils": "^3.3.0",
     "hash-sum": "^2.0.0",
     "loader-utils": "^2.0.0"
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@mahaljs/test-utils": "^1.8.1",
     "css-loader": "^6.5.1",
-    "mahal": "^1.8.6",
+    "mahal": "^1.9.0",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
